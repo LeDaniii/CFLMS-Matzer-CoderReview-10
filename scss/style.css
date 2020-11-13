@@ -1,0 +1,26 @@
+.btn {
+  padding: 0.5rem 3rem;
+}
+
+.success {
+  background: lightgreen;
+  padding: 1rem;
+}
+
+.error {
+  background: tomato;
+  padding: 1rem;
+}
+
+ul li #yes {
+  background: #34e067;
+}
+
+.no {
+  background: #eb6733;
+}
+
+.reserved {
+  background: #fde038;
+}
+/*# sourceMappingURL=style.css.map */

@@ -52,7 +52,7 @@ function createdb(){
         create table if not exists publisher(
             publisher_id int auto_increment primary key,
             publisher_name varchar(30),
-            publisher_adress varchar(30),
+            publisher_adress varchar(100),
             publisher_size varchar(10)
             ) 
     ";
@@ -75,7 +75,7 @@ function createdb(){
         create table if not exists media(
             media_id int auto_increment primary key,
             media_title varchar(100),
-            media_img varchar(30),
+            media_img varchar(200),
             media_isbn int,
             media_description varchar(100),
             media_publish_date date,

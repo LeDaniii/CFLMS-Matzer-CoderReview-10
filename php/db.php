@@ -28,7 +28,7 @@ function createdb(){
         $con = mysqli_connect($servername, $username, $password, $dbname);
 
     $sql = "
-        create table if not exists meal(
+        create table if not exists media(
             id int auto_increment primary key,
             meal_img varchar(100),
             meal_name varchar(30) not null,
@@ -41,7 +41,7 @@ function createdb(){
     if(mysqli_query($con, $sql)){
         return $con;
     } else {
-        echo "cannnot create table!";
+        echo "cannnot create table 1!";
     }
     
     }

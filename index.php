@@ -25,11 +25,13 @@ require_once("../CF-CR10/php/operation.php");
         <p class="py-2 text-light">Need something? We have it! maybe</p>
         <button type="button" class="btn btn-success offset-10 my-2" data-toggle="modal" data-target="#exampleModal"
             data-whatever="@getbootstrap"><i class="fas fa-plus-square"></i> Add New Media</button>
+
     </div>
     <!-- ---------- Header End ---------- -->
     <!-- ---------- Modal Insert Values Start ---------- -->
-
-
+    <form action="" method="post">
+        <?php buttonElement("btn-read", "btn btn-primary", "<i class='fas fa-sync'></i>", "read", "dat-toggle='tooltip' data-placement='bottom' title='read'") ?>
+    </form>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -81,7 +83,7 @@ require_once("../CF-CR10/php/operation.php");
     <section class="bg-light">
         <div class="container-fluid ">
             <div class="row mx-2 my-4 d-flex justify-content-around ">
-                <div class="card mx-3 " style="width: 18rem;">
+                <!-- <div class="card mx-3 " style="width: 18rem;">
                     <img src="https://miro.medium.com/focal/1200/1200/48/38/1*ABSOquiAkx1zxGEHxHqvVA.jpeg"
                         class="card-img-top" alt="...">
                     <div class="card-body">
@@ -95,67 +97,21 @@ require_once("../CF-CR10/php/operation.php");
                         <li class="list-group-item">Published: 2010-10-10</li>
                         <li class="list-group-item">available: yes</li>
                     </ul>
-                </div>
-                <div class="card mx-3" style="width: 18rem;">
-                    <img src="https://miro.medium.com/focal/1200/1200/48/38/1*ABSOquiAkx1zxGEHxHqvVA.jpeg"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">1q84</h5>
-                        <p class="card-text">A love story, a mystery, a fantasy, a novel of self-discovery, a dystopia
-                            to rival George Orwell's—1</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Book</li>
-                        <li class="list-group-item">ISBN: 97818465</li>
-                        <li class="list-group-item">Published: 2010-10-10</li>
-                        <li class="list-group-item">available: yes</li>
-                    </ul>
-                </div>
-                <div class="card mx-3" style="width: 18rem;">
-                    <img src="https://miro.medium.com/focal/1200/1200/48/38/1*ABSOquiAkx1zxGEHxHqvVA.jpeg"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">1q84</h5>
-                        <p class="card-text">A love story, a mystery, a fantasy, a novel of self-discovery, a dystopia
-                            to rival George Orwell's—1</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Book</li>
-                        <li class="list-group-item">ISBN: 97818465</li>
-                        <li class="list-group-item">Published: 2010-10-10</li>
-                        <li class="list-group-item">available: yes</li>
-                    </ul>
-                </div>
-                <div class="card mx-3" style="width: 18rem;">
-                    <img src="https://miro.medium.com/focal/1200/1200/48/38/1*ABSOquiAkx1zxGEHxHqvVA.jpeg"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">1q84</h5>
-                        <p class="card-text">A love story, a mystery, a fantasy, a novel of self-discovery, a dystopia
-                            to rival George Orwell's—1</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Book</li>
-                        <li class="list-group-item">ISBN: 97818465</li>
-                        <li class="list-group-item">Published: 2010-10-10</li>
-                        <li class="list-group-item yes" id="yes">available: yes</li>
-                    </ul>
-                </div>
-                <div class="card mx-3" style="width: 18rem;">
-                    <img src="https://miro.medium.com/focal/1200/1200/48/38/1*ABSOquiAkx1zxGEHxHqvVA.jpeg"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">1q84</h5>
-                        <p class="card-text">A love story, a mystery, a fantasy, a novel of self-discovery, a dystopia
-                            to rival George Orwell's—1</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Book</li>
-                        <li class="list-group-item">ISBN: 97818465</li>
-                        <li class="list-group-item">Published: 2010-10-10</li>
-                        <li class="list-group-item">available: yes</li>
-                    </ul>
-                </div>
+                </div> -->
+                <?php 
+                        // if(isset($_POST['read'])){
+                        // $result = getData();
+                        // if($result){
+                        $sql = "select * from media";
+                        $result = mysqli_query($GLOBALS['con'], $sql);
+                        if(mysqli_num_rows($result) > 0){
+                        while($row = mysqli_fetch_assoc($result)){
+                        echo cardElement($row['media_title'], $row['media_img'], $row['media_isbn'], $row['media_description'], $row['media_publish_date'], $row['media_type'], $row['media_available'], $row['media_id']);
+                                    } 
+                                }
+                            // } 
+                        // }
+                ?>
             </div>
         </div>
     </section>

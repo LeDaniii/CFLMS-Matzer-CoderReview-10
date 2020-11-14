@@ -12,14 +12,24 @@
   padding: 1rem;
 }
 
-ul li .yes {
+.yes {
+  width: 100%;
+  height: 1rem;
   background: rgb(52, 224, 103);
 }
 
 .no {
+  width: 100%;
+  height: 1rem;
   background: rgb(235, 103, 51);
 }
 
 .reserved {
+  width: 100%;
+  height: 1rem;
   background: rgb(253, 224, 56);
+}
+
+img {
+  min-height: 20rem;
 }

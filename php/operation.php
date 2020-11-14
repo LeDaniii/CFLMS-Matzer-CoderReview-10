@@ -13,14 +13,11 @@ function textNode($classname, $msg){
 }
 
 // Button Calls
-// if(isset($_POST['create'])){
-    // echo "Hallo";
-    // createData();
-// }
 if(isset($_POST['create'])){
     // echo "Hello";
     createData();
 }
+
 
 // Check TextBox
 function textboxValue($value) {
@@ -57,3 +54,17 @@ function createData(){
     }
 }
 // ########## Insert Data to DataBase End ##########
+
+// ########## Get Data from DataBase Start ##########
+
+function getData(){
+    $sql = "select * from media";
+
+    $result = mysqli_query($GLOBALS['con'], $sql);
+
+    if(mysqli_num_rows($result) > 0){
+        return $result;
+    }
+}
+
+// ########## Get Data from DataBase End ##########

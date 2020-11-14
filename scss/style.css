@@ -12,15 +12,25 @@
   padding: 1rem;
 }
 
-ul li #yes {
+.yes {
+  width: 100%;
+  height: 1rem;
   background: #34e067;
 }
 
 .no {
+  width: 100%;
+  height: 1rem;
   background: #eb6733;
 }
 
 .reserved {
+  width: 100%;
+  height: 1rem;
   background: #fde038;
+}
+
+img {
+  min-height: 20rem;
 }
 /*# sourceMappingURL=style.css.map */

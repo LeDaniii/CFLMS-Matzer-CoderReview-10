@@ -1,8 +1,9 @@
 <?php
 
-    // Form Input
-    function inputElement($icon, $placeholder, $name, $value, $display){
-        $element = "
+// Form Input
+function inputElement($icon, $placeholder, $name, $value, $display)
+{
+    $element = "
         <div class=\"input-group\" style=\"display: $display \">
         <div class=\"input-group-prepend\">
         <div class=\"input-group-text bg-warning\">$icon</div>
@@ -10,19 +11,21 @@
         <input type=\"text\" name='$name' value='$value' autocomplete=\"off\" placeholder='$placeholder' class=\"form-control\">
         </div>
         ";
-        echo $element;
-    }
+    echo $element;
+}
 
-    // Buttons
-    function buttonElement($btnid, $styleclass, $text, $name, $attr) {
-        $btn = "
-        <button name = '$name' '$attr' class='$styleclass' id='$btnid'>$text</button>";
-        echo $btn;
-    }
+// Buttons
+function buttonElement($btnid, $styleclass, $text, $name, $attr)
+{
+    $btn = "
+<button name = '$name' '$attr' class='$styleclass' id='$btnid'>$text</button>";
+    echo $btn;
+}
 
-    // Card Element
-    function cardElement($title, $img, $isbn, $description, $date, $type, $available, $id) {
-        $card = " <div class=\"card mx-3 my-2\" data-id=\" $id \" style=\"width: 18rem;\">
+// Card Element
+function cardElement($title, $img, $isbn, $description, $date, $type, $available, $id)
+{
+    $card = " <div class=\"card mx-3 my-2\" data-id=\" $id \" style=\"width: 18rem;\">
                     <img  src=\" $img \"
                     class=\"card-img-top\" alt=\"...\">
                     <div class=\"card-body\">
@@ -31,12 +34,19 @@
                     <p data-id=\" $id \" style=\"display: none;\"> $id </p>
                     </div>
                     <ul class=\"list-group list-group-flush\">
+                    <li class=\"align-middle\" data-id=\" $id \" style=\"display:none;\"> $id </li>
                     <li class=\"list-group-item\" data-id=\" $id \">$type</li>
                     <li class=\"list-group-item\" data-id=\" $id \">ISBN: $isbn</li>
                     <li class=\"list-group-item\" data-id=\" $id \">Published: $date</li>
                     <li class=\"list-group-item\" data-id=\" $id \">availability: $available <div class=\"$available\"></div>
                     </li>
                     </ul>
-                    </div>";
+                    <div class=\"d-flex justify-content-around \">
+                    <a href=\"update.php?id=$id\" class=\"btn btn-secondary\" role=\"button\" aria-pressed=\"true\">Edit</a>
+                    <a href=\"delete.php?id=$id\" class=\"btn btn-danger\" role=\"button\" aria-pressed=\"true\">Delete</a>
+                    </div>
+                    </div>"
+
+    ;
     echo $card;
-    }
+}

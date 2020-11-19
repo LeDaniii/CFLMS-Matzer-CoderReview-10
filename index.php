@@ -1,8 +1,8 @@
 <?php
 
-require_once "../CF-CR10/php/component.php";
+require_once "php/component.php";
 // require_once("../CF-CR10/php/db.php");
-require_once "../CF-CR10/php/operation.php";
+require_once "php/operation.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -102,15 +102,15 @@ require_once "../CF-CR10/php/operation.php";
 if (isset($_POST['read'])) {
     $result = getData();
     if ($result) {
-        $sql = "select * from media";
-        $result = mysqli_query($GLOBALS['con'], $sql);
-        if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo cardElement($row['media_title'], $row['media_img'], $row['media_isbn'], $row['media_description'], $row['media_publish_date'], $row['media_type'], $row['media_available'], $row['media_id']);
-            }
+        // $sql = "select * from media";
+        // $result = mysqli_query($GLOBALS['con'], $sql);
+        // if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo cardElement($row['media_title'], $row['media_img'], $row['media_isbn'], $row['media_description'], $row['media_publish_date'], $row['media_type'], $row['media_available'], $row['media_id']);
         }
     }
 }
+// }
 ?>
             </div>
         </div>
